@@ -16,7 +16,7 @@ type FlightDetails record {
 service / on new http:Listener(8090) {
     resource function get flightdata(string destination, string origin, string date, string? flightNo) returns FlightDetails|error {
         io:println("This API endpoint will return details of all available flights");
-        jdbc:Client jdbcEndpoint = check new ("jdbc:sqlserver://flightreservationsystem.database.windows.net:1433;database=flightdata;user=Yashodha123@flightreservationsystem;password=123Newyork@#1;encrypt=true;trustServerCertificate=false;hostNameInCertificate=*.database.windows.net;loginTimeout=30;");
+        jdbc:Client jdbcEndpoint = check new ("jdbc:sqlserver://flightreservationsystem.database.windows.net:1433;database=flightdata;user=Yashodha123@flightreservationsystem;password=*******;encrypt=true;trustServerCertificate=false;hostNameInCertificate=*.database.windows.net;loginTimeout=30;");
         // stream<FlightDetails, error?> resultStream = jdbcEndpoint->query(`SELECT * FROM Flight`);
         // check from FlightDetails flight in resultStream
             // do {

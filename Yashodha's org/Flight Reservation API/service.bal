@@ -45,7 +45,7 @@ service / on new http:Listener(9090) {
         string destination;
         string flightTimeInUTC;
         string flightTimeInLocalTime;
-        jdbc:Client jdbcEndpoint = check new ("jdbc:sqlserver://flightreservationsystem.database.windows.net:1433;database=flightdata;user=Yashodha123@flightreservationsystem;password=123Newyork@#1;encrypt=true;trustServerCertificate=false;hostNameInCertificate=*.database.windows.net;loginTimeout=30;");
+        jdbc:Client jdbcEndpoint = check new ("jdbc:sqlserver://flightreservationsystem.database.windows.net:1433;database=flightdata;user=Yashodha123@flightreservationsystem;password=*******;encrypt=true;trustServerCertificate=false;hostNameInCertificate=*.database.windows.net;loginTimeout=30;");
         stream<FlightDetails, error?> flightTimeRes = jdbcEndpoint->query(`SELECT * from Flight where flightNumber=${flightNo}`);
         check from FlightDetails flight in flightTimeRes
             do {

@@ -26,7 +26,7 @@ service /fareCal on new http:Listener(9090) {
         int totalCapacity;
         int totalFare = 0;
         int baseFare;
-        jdbc:Client jdbcEndpoint = check new ("jdbc:sqlserver://flightreservationsystem.database.windows.net:1433;database=flightdata;user=Yashodha123@flightreservationsystem;password=123Newyork@#1;encrypt=true;trustServerCertificate=false;hostNameInCertificate=*.database.windows.net;loginTimeout=30;");
+        jdbc:Client jdbcEndpoint = check new ("jdbc:sqlserver://flightreservationsystem.database.windows.net:1433;database=flightdata;user=Yashodha123@flightreservationsystem;password=*******;encrypt=true;trustServerCertificate=false;hostNameInCertificate=*.database.windows.net;loginTimeout=30;");
         stream<FlightDetails, error?> resultStream1 = jdbcEndpoint->query(`SELECT * from Flight WHERE flightNumber=${flightNo}`);
         check from FlightDetails flight in resultStream1
             do {

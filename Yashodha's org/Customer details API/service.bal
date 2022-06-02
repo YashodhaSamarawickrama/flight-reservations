@@ -20,7 +20,7 @@ service / on new http:Listener(9090) {
     # + name - the input string name
     # + return - string name with hello message or error
     resource function post registerCustomer(string passportNo, string name,string address, string email, string phone) returns string|error? {
-        jdbc:Client jdbcEndpoint = check new ("jdbc:sqlserver://flightreservationsystem.database.windows.net:1433;database=flightdata;user=Yashodha123@flightreservationsystem;password=123Newyork@#1;encrypt=true;trustServerCertificate=false;hostNameInCertificate=*.database.windows.net;loginTimeout=30;");
+        jdbc:Client jdbcEndpoint = check new ("jdbc:sqlserver://flightreservationsystem.database.windows.net:1433;database=flightdata;user=Yashodha123@flightreservationsystem;password=*******;encrypt=true;trustServerCertificate=false;hostNameInCertificate=*.database.windows.net;loginTimeout=30;");
         stream<CustomerDetails, error?> resultStream = jdbcEndpoint -> query(`INSERT INTO Customer(passportNo,name,residentialAddress,email,phone) VALUES(${passportNo},${name},${address},${email},${phone}) `);
         // check from ReservationDetails resevation in resultStream
         //     do {
